@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+      socket.on("func", data => {
+        console.log(data);
+      });
+      socket.on("vul", data => {
+        console.log(data);
+      });
+    </script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card" style="margin-top: 30px;">
+        <div class="card-body">
+          <h1 class="card-title">SEARCH GOOGLE</h1>
+          <!-- <form> -->
+          <div class="form-group">
+            <label for="querySearch">QUERY SEARCH</label>
+            <input
+              type="text"
+              class="form-control"
+              id="querySearch"
+              aria-describedby="emailHelp"
+              placeholder="Enter Query Search"
+              value="site:linkedin.com/in/ and 'hanoi technology'"
+            />
+          </div>
+          <div class="form-group">
+            <label for="linkedInCookie">LINKEDIN COOKIE</label>
+            <input
+              type="text"
+              class="form-control"
+              id="linkedInCookie"
+              placeholder="Enter LinkedIn Cookie"
+              value='li_sugr=62e08697-b282-4ae6-9851-ad1a157a04ad; bcookie="v=2&cba5d473-b40d-4e9a-86fe-ca36ae0fefde"; bscookie="v=1&20191115185211b6d0f9a8-d3fe-44db-860d-40a9c55410e3AQHxLmaTxc5mFHI9uoaDEZa_5jYW1ADO"; fid=AQFZMaM90DsNnQAAAW5yMwh3hF3u55R0kI_i4ViWqKd_T1sScn00XMtMbxRWEbU4uB4xRlfP3o62lA; lissc1=1; lissc2=1; _ga=GA1.2.2085583126.1573874044; aam_uuid=65955788105299563733394221981710099821; li_at=AQEDASCquz0DxSf7AAABbnI0GTIAAAFulkCdMlEAP7X3MUhy7MIyyat4koPb3IwszVEnh_xxvdXlUjcGJ1Zj5MMtnaeOuvIlSozSxmaokdmBI4JNuc6rirXxIpzTIsTE5TqYIxtncbgPRoeVJ1DafY6L; liap=true; sl=v=1&d2q44; JSESSIONID="ajax:2419426424935929772"; _guid=1620fba2-43d6-4f52-8aff-c74f2e612f27; lang=v=2&lang=en-us; AMCVS_14215E3D5995C57C0A495C55%40AdobeOrg=1; spectroscopyId=6a08ea66-149a-4ecb-9bd9-1338c67efbde; li_oatml=AQFPAJ5JDkWd7AAAAW6Oa9ay8o2y-mYty3th8LVdawGtbaMbkZFwHdlHBfERm_mfCsBGDc2FN_HUdPPiacr-Sf2wiJZCJhcg; _lipt=CwEAAAFukh4dKyiJgmCsBGDFeKo-Hl-m_ki683_8658PrE-JjtJ8CVbK3quBqVzyv67iHX_Sgqjfod7sJAa6dNAv37d6cqctL9S-D9aLl1uiyeGlv9caX2XB3GKl62JgaROclJa_rXn3P7S3zBU_jC0i8mUkJIkF8XXCP3ZkeCc9dpXBtwa6MDyKlSZlB015C-Fve9Iw2b0446wXXp6ByKMou80qRbRSReh9; _gat=1; AMCV_14215E3D5995C57C0A495C55%40AdobeOrg=-1303530583%7CMCIDTS%7C18223%7CMCMID%7C65772574219106841263446834623820453542%7CMCAAMLH-1575023535%7C3%7CMCAAMB-1575023535%7CRKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y%7CMCOPTOUT-1574425935s%7CNONE%7CvVersion%7C3.3.0%7CMCCIDH%7C306503579; UserMatchHistory=AQJhLrruNobRTQAAAW6Sr0xv3qPOVEA0L1JaucFaJ6B-9VXigZefAIZYf1TnbkLXSJB8YTesy6CXgClAc19ETcHnAELH6HEZ7XJ3srX4hw6fjbOVvTglIUCDCARgzh2iQIGisiYQYI8aGGpvi_KGm4eF0ifv8BX1ro0M_c2GPKNZUqQOLxltO-OUfRAJ_AuSed6DpA; lidc="b=SB65:g=283:u=8:i=1574419021:t=1574433862:s=AQEkGKLUwClQSuhUueoPH4rh7crejT6u"'
+            />
+          </div>
+          <div class="form-group">
+            <label for="startIndex">START INDEX</label>
+            <input
+              type="number"
+              class="form-control"
+              id="startIndex"
+              aria-describedby="emailHelp"
+              placeholder="Start Index"
+              value="0"
+            />
+            <input
+              type="number"
+              class="form-control"
+              id="endIndex"
+              aria-describedby="emailHelp"
+              placeholder="End Index"
+              value="30"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="submitBtn">
+            CRAWL GOOGLE
+          </button>
+          <button id="crawlLinkedInBtn" class="btn btn-danger">
+            CRAWL LINKEDIN
+          </button>
+          <!-- </form> -->
+          <a href="/func" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      $("#submitBtn").click(() => {
+        var startIndex = $("#startIndex").val() * 10;
+        var endIndex = $("#endIndex").val() * 10;
+        $("#submitBtn").attr("disabled", true);
+        $.ajax({
+          url: `/googleSearch?querySearchParam=${$(
+            "#querySearch"
+          ).val()}&startIndex=${startIndex}&endIndex=${endIndex}`,
+          method: "get",
+          success: data => {
+            console.log(data);
+          }
+        });
+      });
+      $("#crawlLinkedInBtn").click(() => {
+        var cookie = $("#linkedInCookie")
+          .val()
+          .replace(/&/g, "%26");
+        $("#crawlLinkedInBtn").attr("disabled", true);
+
+        $.ajax({
+          url: `/mySQL?cookie=${cookie}`,
+          method: "get",
+          success: data => {
+            console.log(data);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
